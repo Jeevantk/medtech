@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset= "utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MedRec</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/myStyles.css">
+</head>
+
+<body id="index">
+    <nav id="items" class="navbar navbar-inverse navbar-fixed-top" role= "navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand"><img src="img/logo.png" height="30" width="41"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul id="navigate" class="nav navbar-nav">
+                    <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+                    <!-- <li><a href="control.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Control</a></li>
+                    <li><a href="reports.html"> <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Reports</a></li>
+                    <li><a href="contactus.html"><i class="fa fa-envelope-o"></i> Contact</a></li> -->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="loginclick"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="loginclose">&times;</button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="sr-only" for="email">Email Address </label>
+                            <input type="text" class="form-control input-sm" id="userName" placeholder="User"/>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="sr-only" for="password" >Password </label>
+                            <input type="password" class="form-control input-sm" id="password" placeholder="Password">
+                        </div>
+                        <div class="checkbox">
+                            <label>    
+                                <input type="checkbox"> Remember Me</span>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-info btn-sm" id="login">Sign in</button>
+                        <button type="button" class="btn btn-default btn-sm" id="logincancel">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab">
+        <button class="tablinks actve" onclick="openTab(event, 'caseSheet')">Case Record</button>
+        <button class="tablinks " onclick="openTab(event, 'prescription')">Prescription</button>
+        <button class="tablinks" onclick="openTab(event, 'labResults')">Lab Results</button>
+        <button class="tablinks" onclick="openTab(event, 'scanReports')">Scan Reports</button>        
+        <form name="" class= "right" >
+            Unique Patient Id : <input type="number" name="xValue"><br>
+             <input type="button" onclick="inputForm()" value="Submit">
+         </form>
+    </div>
+
+    
+    <div id="caseSheet" class="tabcontent">
+        <h4 align="center" >Demographic Details</h4> 
+        
+        <div class="row">
+            <div class="block">Name :</div>
+            <div class="block">Age : </div>
+            <div class="block">Sex :</div>
+            <div class="block">Address :</div>
+        </div>
+        <br>
+        <h4 align="center" >Patient Vitals</h4> 
+
+        <div class="row">
+            <div class="block">Height :</div> <input type="number" name="height" >
+            <div class="block">Weight : </div> <input type="number" name="weight" >
+            <div class="block">Pulse :</div> <input type="number" name="pulse" >
+            <div class="block">BP :</div> <input type="number" name="bloodPressure" >
+        </div>
+        <br>
+        <div class="row">
+            <div class="block">RR :</div> <input type="number" name="resporatoryRate" >
+            <div class="block">Tempurature :</div> <input type="number" name="tempurature" >
+            <div class="block">SPO2 :</div> <input type="number" name="spo2" >
+        </div>
+        <br>
+
+        <h3 align="center">Complaints</h3>
+        <div class="row">
+            <textarea  rows="6" cols=80></textarea>
+        </div>
+
+        <h3 align="center">Diagnosis</h3>
+        <div class="row">
+            <textarea  rows="4" cols=80></textarea>
+        </div>
+
+        <!-- <h3 align="center">Treatment</h3>
+        <div class="row">
+            <textarea  rows="6" cols=80></textarea>
+        </div> -->
+        <br>
+
+        <div class="wrapper">
+                <button class="button" onclick="openTab(event, 'prescription');submitPatientData()">Submit</button>
+        </div>
+        <br>
+    </div>
+
+    <div id="prescription" class="tabcontent">
+          
+    </div>
+
+    <div id="labResults" class="tabcontent">
+        lab Results Details  
+    </div>
+
+    <div id="scanReports" class="tabcontent">
+        Scan Results Details  
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            
+            $("#loginclick").click(function(){
+                $("#loginModal").modal('show');
+            });
+            $("#loginclose").click(function(){
+                $("#loginModal").modal('hide');
+            });
+            $("#logincancel").click(function(){
+                $("#loginModal").modal('hide');
+            });
+            $("#login").click(function(){
+                
+                $("#loginModal").modal('hide');
+
+                if(document.getElementById('userName').value=="jeevan" && document.getElementById('password').value=="btp")
+                {
+                    alert("Login Successful ");
+                    document.getElementById("loginclick").innerHTML = "logout";
+                }
+                else{
+                    alert("login failed");
+                }
+
+            });
+        });
+
+        document.getElementsByClassName('tablinks')[0].click();
+        function openTab(evt, sensorTab) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(sensorTab).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
