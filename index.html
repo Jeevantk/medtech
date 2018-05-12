@@ -123,13 +123,171 @@
         <br>
 
         <div class="wrapper">
-                <button class="button" onclick="openTab(event, 'prescription');submitPatientData()">Submit</button>
+                <button class="button" onclick="openTab(event, 'prescription');submitPatientData()">Next</button>
         </div>
         <br>
     </div>
 
     <div id="prescription" class="tabcontent">
-          
+
+        <form name="diagnosis"  class= "center" >
+            Class of Drugs <input type="text" name="diseaseDiagnosed" ><br>
+            <input type="button" onclick="clickDiag()" value="Submit">
+        </form>
+        
+        <br></br>
+
+        <table>
+            <tr>
+                <th>Sl No.</th>
+                <th>Drug</th>
+                <th>Dose</th>
+                <th>Time</th>
+                <th>Frequency</th>
+                <th>Duration</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class = "select" >
+                    <select name="" onchange="updateDose(this.value,0)">  
+                        <option id="med00" ></option>
+                        <option id="med10" ></option>
+                        <option id="med20" ></option>
+                        <option id="med30" ></option>
+                        <option id="med40" ></option>
+                        <option id="med50" ></option>
+                    </select>
+                </td>
+                <td class = "select" >
+                    <select >
+                        <option id="dose00" ></option>      
+                        <option id="dose10" ></option>
+                        <option id="dose20" ></option>
+                        <option id="dose30" ></option>
+                        <option id="dose40" ></option>
+                    </select>
+                </td>
+                <td class = "select" >
+                    <select > 
+                        <option id="med0" ></option>       
+                        <option id="med1" >Before Food</option>
+                        <option id="med2" >After Food</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="medicineFreq1" ><br>
+                </td>  
+                <td>
+                    <input type="text" name="duration1" ><br>
+                </td>    
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class = "select" >
+                    <select name="" onchange="updateDose(this.value,1)"> 
+                        <option id="med01"> </option>       
+                        <option id="med11" ></option>
+                        <option id="med21" ></option>
+                        <option id="med31" ></option>
+                        <option id="med41" ></option>
+                        <option id="med51" ></option>
+                    </select>
+                </td>
+                <td class = "select" >
+                    <select >
+                        <option id="dose01"> </option>        
+                        <option id="dose11" ></option>
+                        <option id="dose21" ></option>
+                        <option id="dose31" ></option>
+                        <option id="dose41" ></option>
+                    </select>
+                </td>
+                <td class = "select" >
+                    <select >
+                        <option id="med0" ></option>        
+                        <option id="med1" >Before Food</option>
+                        <option id="med2" >After Food</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="medicineFreq1" ><br>
+                </td>  
+                <td>
+                    <input type="text" name="duration1" ><br>
+                </td>    
+            </tr>
+            <tr>
+            <td>3</td>
+                <td class = "select" >
+                    <select name="" onchange="updateDose(this.value,2)"> 
+                        <option id="med02" ></option>       
+                        <option id="med12" ></option>
+                        <option id="med22" ></option>
+                        <option id="med32" ></option>
+                        <option id="med42" ></option>
+                        <option id="med52" ></option>
+                    </select>
+                </td>
+                <td class = "select" >
+                    <select >
+                        <option id="dose02" ></option>        
+                        <option id="dose12" ></option>
+                        <option id="dose22" ></option>
+                        <option id="dose32" ></option>
+                        <option id="dose42" ></option>
+                    </select>
+                </td>
+                <td class = "select" >
+                    <select >
+                        <option id="med0" ></option>         
+                        <option id="med1" >Before Food</option>
+                        <option id="med2" >After Food</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="medicineFreq1" ><br>
+                </td>  
+                <td>
+                    <input type="text" name="duration1" ><br>
+                </td>    
+            </tr>
+            <tr>
+                <td>4</td>
+                    <td class = "select" >
+                        <select name="" onchange="updateDose(this.value,3)">
+                            <option id="med03" ></option>        
+                            <option id="med13" ></option>
+                            <option id="med23" ></option>
+                            <option id="med33" ></option>
+                            <option id="med43" ></option>
+                            <option id="med53" ></option>
+                        </select>
+                    </td>
+                    <td class = "select" >
+                        <select >     
+                            <option id="dose03" ></option>   
+                            <option id="dose13" ></option>
+                            <option id="dose23" ></option>
+                            <option id="dose33" ></option>
+                            <option id="dose43" ></option>
+                        </select>
+                    </td>
+                    <td class = "select" >
+                        <select > 
+                            <option id="med0" ></option>       
+                            <option id="med1" >Before Food</option>
+                            <option id="med2" >After Food</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="medicineFreq1" ><br>
+                    </td>  
+                    <td>
+                        <input type="text" name="duration1" ><br>
+                    </td>    
+                </tr>
+        </table>
+        
     </div>
 
     <div id="labResults" class="tabcontent">
